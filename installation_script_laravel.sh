@@ -65,13 +65,13 @@ sudo chmod -R 777  /var/www/storage/logs
 sudo chmod -R 777 storage
 
 
-curl -O https://developer-files.nyc3.digitaloceanspaces.com/ubunto/virtualhost.txt
+curl -O https://raw.githubusercontent.com/luucasfzs/ubunto-20-laravel/master/files/virtualhost.txt
 sudo  mv virtualhost.txt /etc/apache2/sites-available/000-default.conf
 
-curl -O https://developer-files.nyc3.digitaloceanspaces.com/ubunto/apache2.txt
+curl -O https://raw.githubusercontent.com/luucasfzs/ubunto-20-laravel/master/files/apache2.txt
 sudo  mv apache2.txt /etc/apache2/apache2.conf
 
-curl -O https://developer-files.nyc3.digitaloceanspaces.com/ubunto/env_example.txt
+curl -O https://raw.githubusercontent.com/luucasfzs/ubunto-20-laravel/master/examples/env_example.txt
 sudo  mv env_example.txt .env
 
 sudo service apache2 restart
