@@ -41,20 +41,20 @@ sudo a2enmod rewrite
 echo ""
 echo "${green}[3/8] Instaling Componser${reset}"
 echo ""
-curl -sS https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
+sudo curl -sS https://getcomposer.org/installer | php
+sudo sudo mv composer.phar /usr/local/bin/composer
 sudo service apache2 restart
 
 echo ""
 echo "${green}[4/8] Generating SSH Key${reset}"
-ssh-keygen
+sudo ssh-keygen
 echo ""
 cat ~/.ssh/id_rsa.pub
 echo ""
 echo "${blue}[ACTION] Copy the Key and Add in project at Github${reset}"
 echo "${yellow}[QUESTION] Type 'YES' if you did that:${reset}"
 read answer
-rm -rf /var/www/*
+sudo rm -rf /var/www/*
 
 echo ""
 echo "${green}[5/8] Cloning the repository${reset}"
@@ -62,9 +62,9 @@ echo ""
 echo "${yellow}[QUESTION] Type the repository:${reset}"
 read gitRepository
 cd /var/www
-git init  
-git remote add origin $gitRepository
-git pull origin master 
+sudo git init  
+sudo git remote add origin $gitRepository
+sudo git pull origin master 
 
 echo ""
 echo "${green}[6/8] Project Composer install${reset}"
@@ -77,9 +77,9 @@ sudo chmod -R 777 storage
 echo ""
 echo "${green}[7/8] Update the files of Apache${reset}"
 echo ""
-curl -O https://raw.githubusercontent.com/luucasfzs/ubunto-20-laravel/master/files/virtualhost.txt
+sudo curl -O https://raw.githubusercontent.com/luucasfzs/ubunto-20-laravel/master/files/virtualhost.txt
 sudo  mv virtualhost.txt /etc/apache2/sites-available/000-default.conf
-curl -O https://raw.githubusercontent.com/luucasfzs/ubunto-20-laravel/master/files/apache2.txt
+sudo curl -O https://raw.githubusercontent.com/luucasfzs/ubunto-20-laravel/master/files/apache2.txt
 sudo  mv apache2.txt /etc/apache2/apache2.conf
 sudo service apache2 restart
 
@@ -88,7 +88,7 @@ echo "${green}[8/8] Instaling NODE${reset}"
 echo "${yellow}[QUESTION] Type the version of NODE that you want to install:${reset}"
 echo ""
 read nodeVersion
-curl -sL https://deb.nodesource.com/setup_$nodeVersion.x | sudo bash -
+sudo curl -sL https://deb.nodesource.com/setup_$nodeVersion.x | sudo bash -
 sudo apt -y install nodejs
 sudo npm install
 sudo npm run prod
